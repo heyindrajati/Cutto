@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mesh-light bg-fixed bg-no-repeat text-ink font-body;
+}
+
+/* Dotted upload dropzone border, matching the Figma reference */
+.dropzone-border {
+  border: 2px dashed rgba(124, 58, 237, 0.35);
+}
+
+.step-line {
+  background-image: repeating-linear-gradient(
+    to right,
+    #cdbead 0,
+    #cdbead 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
