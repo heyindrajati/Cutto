@@ -18,8 +18,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cuttotools.vercel.app"),
   title: "Cutto — Turn long images into killer carousels",
   description: "Drop your image, pick your slides, download & post. No signup. No nonsense. Just clean cuts.",
+  openGraph: {
+    title: "Cutto — Turn long images into killer carousels",
+    description: "Free Instagram carousel splitter. No signup. No nonsense. Just clean cuts.",
+    url: "/",
+    siteName: "Cutto",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export const viewport: Viewport = {
