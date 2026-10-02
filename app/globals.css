@@ -2,25 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  @apply bg-mesh-light bg-fixed bg-no-repeat text-ink font-body;
+  @apply bg-brand-purple font-body text-ink antialiased;
 }
 
-/* Dotted upload dropzone border, matching the Figma reference */
-.dropzone-border {
-  border: 2px dashed rgba(124, 58, 237, 0.35);
+/* Gradient-filled words in the sidebar headline */
+.grad-text {
+  @apply bg-headline-grad bg-clip-text text-transparent;
 }
 
-.step-line {
-  background-image: repeating-linear-gradient(
-    to right,
-    #cdbead 0,
-    #cdbead 6px,
-    transparent 6px,
-    transparent 12px
-  );
+/* Dashed white cut line on the slice preview */
+.cut-line {
+  border-left: 1.5px dashed rgba(255, 255, 255, 0.95);
+  transform: translateX(-0.75px);
+  filter: drop-shadow(0 0 1.5px rgba(50, 22, 79, 0.6));
+}
+
+/* Hide the native scrollbar on the slide strip (we draw our own indicator) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

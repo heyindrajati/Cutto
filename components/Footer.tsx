@@ -1,15 +1,35 @@
-export default function Footer() {
+import { withUtm } from "@/lib/backgrounds";
+import type { ShownPhoto } from "./useBackgroundPhotos";
+
+const link = "font-semibold underline-offset-2 hover:underline";
+
+export default function Footer({ photo }: { photo: ShownPhoto | null }) {
   return (
-    <footer className="mt-20 border-t border-ink/10 py-10 text-center">
-      <p className="text-sm text-ink/70">
-        Created by <a href="https://www.instagram.com/hey.indrajati/"target="_blank"><span className="font-semibold text-ink">@hey.indrajati</span></a>
+    <footer className="grid w-full gap-1 px-2 pt-4 text-center font-body text-xs leading-4 text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)] sm:grid-cols-[1fr_auto_1fr] sm:items-center sm:gap-4">
+      <p className="sm:text-left">
+        Created by{" "}
+        <a href="https://www.instagram.com/hey.indrajati/" target="_blank" rel="noopener noreferrer" className={link}>
+          @hey.indrajati
+        </a>
       </p>
-      <p className="mt-3 text-sm font-semibold text-ink">
-        Instagram · YouTube · heyindrajati.com
+
+      {/* Unsplash attribution — required wording + links */}
+      <p className="order-last text-white/80 sm:order-none">
+        {photo && (
+          <>
+            Photo by{" "}
+            <a href={withUtm(photo.photographerUrl)} target="_blank" rel="noopener noreferrer" className={link}>
+              {photo.photographer}
+            </a>{" "}
+            on{" "}
+            <a href={withUtm(photo.photoUrl)} target="_blank" rel="noopener noreferrer" className={link}>
+              Unsplash
+            </a>
+          </>
+        )}
       </p>
-      <p className="mt-3 text-xs text-ink/50">
-        Free of cost · No sign up · No data stored
-      </p>
+
+      <p className="sm:text-right">Free of cost · No sign up · No data stored</p>
     </footer>
   );
 }
